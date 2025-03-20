@@ -16,6 +16,7 @@ class CanvasPointerField extends Field
 
     protected string | \Closure | null $imageUrl = null;
 
+    protected string | \Closure | null $pointColor = 'red';
     public function width(int | \Closure | null $width): static
     {
         $this->width = $width;
@@ -23,6 +24,11 @@ class CanvasPointerField extends Field
         return $this;
     }
 
+    public function pointColor(int | \Closure | null $pointColor):static
+    {
+        $this->pointColor = $pointColor;
+        return $this;
+    }
     public function height(int | \Closure | null $height): static
     {
         $this->height = $height;

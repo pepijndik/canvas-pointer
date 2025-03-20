@@ -10,6 +10,8 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use Livewire\Livewire;
+use RuelLuna\CanvasPointer\Forms\Components\PointForm;
 use RuelLuna\CanvasPointer\Testing\TestsCanvasPointer;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
@@ -20,7 +22,6 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
     public static string $name = 'canvas-pointer';
 
     public static string $viewNamespace = 'canvas-pointer';
-
     public function configurePackage(Package $package): void
     {
         /*
@@ -61,6 +62,7 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
+        Livewire::component('point-form', PointForm::class);
         // Asset Registration
         FilamentAsset::register(
             $this->getAssets(),
@@ -99,10 +101,10 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('canvas-pointer', __DIR__ . '/../resources/dist/components/canvas-pointer.js'),
-            // Css::make('canvas-pointer-styles', __DIR__ . '/../resources/dist/canvas-pointer.css'),
-            // Js::make('canvas-pointer-scripts', __DIR__ . '/../resources/dist/canvas-pointer.js'),
-            Js::make('canvas-pointer-scripts', 'https://cdn.jsdelivr.net/npm/konva@latest/konva.min.js'),
+            // AlpineComponent::make('canvas-pointer', __DIR__ . '/../resources/js/components/canvas-pointer.js'),
+            Css::make('canvas-pointer-styles', __DIR__ . '/../resources/dist/canvas-pointer.css'),
+            AlpineComponent::make('hotspotImageComponent', __DIR__ . '/../resources/dist/canvas-pointer.js'),
+            //Js::make('canvas-pointer-scripts', 'https://cdn.jsdelivr.net/npm/konva@latest/konva.min.js'),
         ];
     }
 
