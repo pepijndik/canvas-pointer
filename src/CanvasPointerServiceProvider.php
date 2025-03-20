@@ -22,6 +22,7 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
     public static string $name = 'canvas-pointer';
 
     public static string $viewNamespace = 'canvas-pointer';
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -104,7 +105,7 @@ class CanvasPointerServiceProvider extends PackageServiceProvider
             // AlpineComponent::make('canvas-pointer', __DIR__ . '/../resources/js/components/canvas-pointer.js'),
             Css::make('canvas-pointer-styles', __DIR__ . '/../resources/dist/canvas-pointer.css'),
             AlpineComponent::make('hotspotImageComponent', __DIR__ . '/../resources/dist/canvas-pointer.js'),
-            //Js::make('canvas-pointer-scripts', 'https://cdn.jsdelivr.net/npm/konva@latest/konva.min.js'),
+            // Js::make('canvas-pointer-scripts', 'https://cdn.jsdelivr.net/npm/konva@latest/konva.min.js'),
         ];
     }
 
